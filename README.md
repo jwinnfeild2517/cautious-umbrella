@@ -6,7 +6,7 @@ Illustrate you have a solid grasp of the fundamentals required to create a react
 
 ## Expectations
 
-ATK does have it's own design and UI team so we don't expect a pixel perfect design but we do expect that you'll have a solid understanding of page composition, accessibility and proper markup. Your application will be created in a compressed timeframe (we suggest 4-5 hrs but please no more than 6-8 hrs) so we don't expect a work of art or a magnificent feat of engineering. Your app should interact with the api in a way that provides the user with a reasonable browsing and discovery experience.
+ATK does have it's own design and UI team so we don't expect a pixel perfect design but **we do expect that you'll have a solid understanding of page composition, accessibility and proper markup**. Your application will be created in a compressed timeframe (we suggest 4-5 hrs but please no more than 6-8 hrs) so we don't expect a work of art or a magnificent feat of engineering. Your app should interact with the api in a way that provides the user with a reasonable browsing and discovery experience.
 
 Get as much done as you can, but don't worry if you don't finish it all in the alotted time. We're looking at how you organize your code, manage api requests and structure your markup. We'd prefer 50% done with 100% great code, markup and layout than 100% done with a rushed implementation and inaccessible markup.
 
@@ -14,7 +14,9 @@ Get as much done as you can, but don't worry if you don't finish it all in the a
 
 ### Getting started
 
-1) https://nextjs.org/docs <-- use `create-next-app` to lay the foundation. Choose typescript or javascript, either is fine.
+1) Create an empty public repo on GitHub.
+2) https://nextjs.org/docs <-- use `create-next-app` to lay the foundation. Choose typescript or javascript, either is fine.
+3) Peruse the Open Brewery DB API
 
 ### Home Page
 
