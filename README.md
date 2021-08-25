@@ -1,37 +1,58 @@
-# Next.js/React Code challenge
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Purpose
+## Getting Started
 
-Illustrate you have a solid grasp of the fundamentals required to create a react/next.js based application by building a simple multi-route SPA using the Open Brewery DB API (https://www.openbrewerydb.org/documentation/01-listbreweries).
+Install the dependencies
+```
+yarn
+```
 
-## Expectations
+Start the server
+```
+yarn dev
+```
 
-ATK does have it's own design and UI team so we don't expect a pixel perfect design but **we do expect that you'll have a solid understanding of page composition, accessibility and proper markup**. Your application will be created in a compressed timeframe (we suggest 4-5 hrs but please no more than 6-8 hrs) so we don't expect a work of art or a magnificent feat of engineering. Your app should interact with the api in a way that provides the user with a reasonable browsing and discovery experience.
+## Read the documentation
+* https://www.openbrewerydb.org/documentation
+* https://nextjs.org/docs
+* https://swr.vercel.app/docs/getting-started
+* https://styled-components.com/docs
+* https://reactjs.org/docs/hooks-overview.html
 
-Get as much done as you can, but don't worry if you don't finish it all in the alotted time. We're looking at how you organize your code, manage api requests and structure your markup. We'd prefer 50% done with 100% great code, markup and layout than 100% done with a rushed implementation and inaccessible markup.
+## Project Overview
 
-## Requirements
+This application has a few basic pages which display data from the Open Brewery Database API. The Home page, Search page and Brewery Detail page represent a typical information hierarchy which exists on many sites. Your task is to fix a few bugs, add some features and clean up this version of the application.
 
-### Getting started
+Below are several tasks from which you can choose. Please choose at least 3 of these tasks. Spend no more than 4 hours on this coding challenge.
 
-1) Create an empty public repo on GitHub.
-2) https://nextjs.org/docs <-- use `create-next-app` to lay the foundation. Choose typescript or javascript, either is fine.
-3) Peruse the Open Brewery DB API
-
-### Home Page
-
-1) Highlight a "featured" brewery. The logic regarding "featured" is yours to determine. This could be a brewery in a random geographic region, type of brewery or even based upon the user's current location.
-
-2) Provide a 'browseable' grid of breweries with a 'Type' filter corresponding to the `by_type` filter options here: https://www.openbrewerydb.org/documentation/01-listbreweries. Pagination is not required. Show only the first page of results. The results grid should have a mobile first design that changes the number of items per row from two, to three, to four, when resizing the browser from mobile through desktop sizes.
-
-### Search Page
-
-1) Provide a simple search interface with a search input and a grid of results. The grid should follow the same 2-up, 3-up, 4-up pattern from the browse page.
-
-### Detail Page
-
-1) Display the full details of a brewery using the `id` value from the search or browse page result set. Make use of as many details from the api as possible, being sure to prevent errors from missing data.
-
-2) Display a short list of 'similar' breweries based on `brewery_type`
-
-3) Display a list of other breweries "near by" based on lat/lng data (if available)
+## Challenges
+* Accessibility
+  * Use what you know about A11Y to find and fix potential A11Y issues throughout the site
+* Testing
+  * There is one very basic test in this project and that's pretty terrible. Provide additional test coverage for untested components.
+  * Use any library or setup you are prefer
+  * Can you mock network requests?
+  * Can you simulate user interactions?
+* Search Autocomplete in the site header
+  * The results presented should link directly to the brewery detail page.
+  * Hitting enter on the form should **route** the user to the brewery search page.
+  * Pay special attention to performance and accessibility
+* General Cleanup
+  * Several components render data that's sometimes `null`.
+  * Suppress any empty DOM nodes or, provide a sensible default
+  * Styles
+    * The current app isn't exactly hard on the eyes but it's not a work of art either.
+    * Enhance the visual display of the application - get creative. Use maps, data formatting, placeholder images, etc. Spruce it up a little!
+  * Error handling (timeouts, try/catch, etc). This app is pretty darn optimistic at the moment. Introduce some better error handling to account for the unpredictable nature of the web.
+* Search loading state
+  * Most sites include a 'loading' or skeleton component while data populates
+  * Create a nice loading state for the results grid.
+* Search page pagination
+  * create a basic pagination controls to move between paged recordsets
+* Index page brewery type browsing controls
+  * The Brewery API allows easy filtering by [Brewery Type](https://www.openbrewerydb.org/documentation/01-listbreweries).
+  * Add filter controls to the index page (and search page if you want)
+  * Pay attention to performance and A11Y
+* Index page grid geolocation
+  * The featured brewery on the home page uses a popular geolocation hook. Expand the use of this hook so the user's location can be easily used in other components by using Context.
+  * Provide a fallback location in the event a user declines sharing their location.
