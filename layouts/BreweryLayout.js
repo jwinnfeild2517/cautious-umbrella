@@ -20,6 +20,11 @@ const LayoutWrapper = styled.div`
 
     form {
       margin-left: auto;
+
+      label {
+        margin-right: 10px;
+        color: yellow;
+      }
     }
   }
 
@@ -52,10 +57,12 @@ const BreweryIndexLayout = ({
       </Link>
       {!isSearch && (
         <form action="/search">
+          <label htmlFor="searchbreweries">Search breweries</label>
           <input
             name="q"
             placeholder="Search breweries"
             type="search"
+            id="searchbreweries"
           />
           <button type="submit">Search</button>
         </form>
@@ -65,7 +72,7 @@ const BreweryIndexLayout = ({
       {children}
     </main>
     <footer>
-      Get Your Beer On
+      <p>Get Your Beer On</p>
     </footer>
   </LayoutWrapper>
 );

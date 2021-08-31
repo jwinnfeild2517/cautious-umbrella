@@ -75,19 +75,17 @@ const BreweryHeroItem = ({
   <BreweryHero>
     <h2>Featured Brewery</h2>
     <div className="brewery-info">
+      <h3>
+        <Link href={`/brewery/${id}`}>
+            <a aria-label={`see more about the ${name} brewery`} >{name}</a>
+        </Link>
+      </h3>
       {type && (
         <span className="brewery__type">{type}</span>
       )}
-      <h3>
-        <Link
-          href={`/brewery/${id}`}
-        >
-          {name}
-        </Link>
-      </h3>
       <p className="brewery__location">{[city, state].join(', ')}</p>
       <p className="brewery__phone">{phone}</p>
-      <p className="brewery__url">{url}</p>
+      <a className="brewery__url" aria-label={`go to the ${name} brewery website`} href={url} target="_blank" rel="nofollow noreferrer">Brewery Website</a>
     </div>
   </BreweryHero>
 );

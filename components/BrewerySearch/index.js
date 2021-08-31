@@ -23,6 +23,11 @@ const SearchWrapper = styled.section`
       flex: 1 0 0;
     }
 
+    label {
+      margin-right: 10px;
+      color: red;
+    }
+
     button {
       background-color: black;
       border-radius: 0.25rem;
@@ -61,8 +66,10 @@ const BrewerySearch = ({
   return (
     <SearchWrapper>
     <form onSubmit={onSubmit}>
+      <label htmlFor="searchbreweries">Search Breweries</label>
       <input
         name="query"
+        id="searchbreweries"
         onChange={onChange}
         placeholder="Search breweries"
         ref={inputRef}

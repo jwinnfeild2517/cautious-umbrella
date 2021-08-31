@@ -56,7 +56,7 @@ const BreweryDetail = ({
     </h3>
     <p className="brewery__location">{[city, state].join(', ')}</p>
     <p className="brewery__phone">{phone}</p>
-    <p className="brewery__url">{url}</p>
+    <a className="brewery__url" aria-label={`go to the ${name} brewery website`} href={url} target="_blank" rel="nofollow noreferrer">Brewery Website</a>
   </BreweryItem>
 );
 

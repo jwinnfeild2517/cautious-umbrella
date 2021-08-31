@@ -49,18 +49,16 @@ const BrewerySummaryItem = ({
 }) => (
   <BreweryItem>
     <p className="brewery__title">
-      <Link
-        href={`/brewery/${id}`}
-      >
-        {name}
+      <Link href={`/brewery/${id}`}>
+          <a aria-label={`see more about the ${name} brewery`} >{name}</a>
       </Link>
       <span className="brewery__type">{type}</span>
     </p>
     <p className="brewery__location">{[city, state].join(', ')}</p>
     <p className="brewery__phone">{phone}</p>
     {url && (
-      <a className="brewery__url" href={url} target="_blank" rel="nofollow noreferrer">
-        Website
+      <a className="brewery__url" aria-label={`go to the ${name} brewery website`} href={url} target="_blank" rel="nofollow noreferrer">
+        Brewery Website
       </a>
     )}
   </BreweryItem>
