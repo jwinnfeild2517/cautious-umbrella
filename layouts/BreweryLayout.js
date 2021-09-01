@@ -56,7 +56,7 @@ const BreweryIndexLayout = ({
         Home
       </Link>
       {!isSearch && (
-        <form action="/search">
+        <form data-testid="nav-search-form" action="/search">
           <label htmlFor="searchbreweries">Search breweries</label>
           <input
             name="q"

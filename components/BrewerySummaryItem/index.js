@@ -47,7 +47,7 @@ const BrewerySummaryItem = ({
     website_url: url,
   },
 }) => (
-  <BreweryItem>
+  <BreweryItem data-testid='brewery-item'>
     <p className="brewery__title">
       <Link href={`/brewery/${id}`}>
           <a aria-label={`see more about the ${name} brewery`} >{name}</a>

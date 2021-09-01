@@ -80,7 +80,7 @@ const BrewerySearch = ({
     </form>
     {data ? (
       <>
-        <p>Showing results for <strong>{searchTerm}</strong></p>
+        <p data-testid='results-heading' >Showing results for <strong>{searchTerm}</strong></p>
         <BrewerySummaryGrid
           breweries={data}
         />

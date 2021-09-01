@@ -40,6 +40,7 @@
     "eslint-config-next": "11.1.0",
     "global-jsdom": "^8.1.0",
     "jest": "^27.0.6",
+    "jest-fetch-mock": "^3.0.3",
     "jest-styled-components": "^7.0.5"
   }
 }
