@@ -5,9 +5,10 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import AutoComplete from '../components/Autocomplete'
 import useSWR from 'swr';
+import { breakpoint } from 'styled-components-breakpoint';
 
 const LayoutWrapper = styled.div`
-  background-color: white;
+  background-color: #efefef;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -17,10 +18,19 @@ const LayoutWrapper = styled.div`
   width: 1200px;
 
   header {
-    background-color: black;
+    background-color: transparent;
+    flex-direction: column;
     color: white;
     display: flex;
-    padding: 0.5rem 1rem;
+    padding: 2em 0;
+    align-items: center;
+
+    a.nav-link {
+      text-decoration: underline;
+      margin-bottom: 10px;
+      color: black;
+      font-size: 1.5em;
+    }
 
     form {
       margin-left: auto;
@@ -28,12 +38,35 @@ const LayoutWrapper = styled.div`
       label {
         margin-right: 10px;
         color: yellow;
+        display: none;
+      }
+
+      input {
+        margin-right: .5em;
+        width: 20em;
+      }
+
+      button {
+        background-color: black;
+        border-radius: 0.25rem;
+        color: white;
+        border: 0;
+        font: 12px/1 sans-serif;
+        padding: 0.5rem;
+        text-transform: uppercase;
+        -webkit-appearance: none;
+
+        &:hover {
+          background-color: red;
+          cursor: pointer;
+        }
       }
     }
   }
 
   main {
-    padding: 2rem;
+    padding: 0rem;
+    font-family: 'Montserrat', sans-serif;
   }
 
   footer {
@@ -41,6 +74,22 @@ const LayoutWrapper = styled.div`
     margin-top: auto;
     padding: 1rem;
   }
+
+  ${breakpoint('md')`
+  main {
+    padding: 2em;
+  }
+  header {
+    flex-direction: row;
+    padding: 1em 1em;
+    background-color: #6e6f84;
+
+    a.nav-link {
+      font-size: 1em;
+      color: white;
+    }
+  }
+  `}
 `;
 
 const BreweryIndexLayout = ({
@@ -65,12 +114,16 @@ const BreweryIndexLayout = ({
         <title>ATK JS Challenge</title>
         <meta name="description" content="Clean up our mess" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       </Head>
       <header>
         <Link
           href="/"
         >
-          Home
+          <a className="nav-link">Home</a>
         </Link>
         {!isSearch && (
           <form data-testid="nav-search-form" action="/search">

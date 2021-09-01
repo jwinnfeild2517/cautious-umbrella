@@ -40,7 +40,7 @@ const BreweryHero = styled.article`
   }
 
   .brewery-info {
-    background-color: rgba(0,0,0,0.8);
+    background-color: #efefef;
     box-shadow: 0 5px 30px 0 rgba(0,0,0,0.5);
     border-radius: 1rem;
     bottom: 1rem;
@@ -84,8 +84,17 @@ const BreweryHeroItem = ({
         <span className="brewery__type">{type}</span>
       )}
       <p className="brewery__location">{[city, state].join(', ')}</p>
-      <p className="brewery__phone">{phone}</p>
-      <a className="brewery__url" aria-label={`go to the ${name} brewery website`} href={url} target="_blank" rel="nofollow noreferrer">Brewery Website</a>
+      {phone && (<p className="brewery__phone">{phone}</p>)}
+      {url && (
+        <a
+          className="brewery__url"
+          aria-label={`go to the ${name} brewery website`}
+          href={url} target="_blank"
+          rel="nofollow noreferrer"
+        >
+          Brewery Website
+        </a>
+      )}
     </div>
   </BreweryHero>
 );

@@ -2,24 +2,18 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import BrewerySummaryItem from '../BrewerySummaryItem';
 
 const BreweryItem = styled.section`
   padding: 1rem;
   position: relative;
 
-  .brewery {
-    &__type {
-      background-color: ${({theme}) => theme.colors.primary};
-      border-radius: 0.25rem;
-      color: white;
-      font: 0.85rem/1 sans-serif;
-      padding: 0.25rem 0.5rem;
-      float: right;
-    }
-  }
-
   h3 {
     margin: 0 0 1rem;
+  }
+
+  img {
+    margin-bottom: 1em
   }
 
   a {
@@ -31,17 +25,7 @@ const BreweryItem = styled.section`
   }
 `;
 
-const BreweryDetail = ({
-  brewery: {
-    id,
-    name,
-    brewery_type: type,
-    city,
-    state,
-    phone,
-    website_url: url,
-  },
-}) => (
+const BreweryDetail = ({brewery}) => (
   <BreweryItem>
     <Image
       unoptimized
@@ -50,13 +34,7 @@ const BreweryDetail = ({
       height={400}
       width={1200}
     />
-    <h3>
-      {name}
-      <span className="brewery__type">{type}</span>
-    </h3>
-    <p className="brewery__location">{[city, state].join(', ')}</p>
-    <p className="brewery__phone">{phone}</p>
-    <a className="brewery__url" aria-label={`go to the ${name} brewery website`} href={url} target="_blank" rel="nofollow noreferrer">Brewery Website</a>
+    <BrewerySummaryItem brewery={brewery} />
   </BreweryItem>
 );
 

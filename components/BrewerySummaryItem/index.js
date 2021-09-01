@@ -2,9 +2,11 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { breakpoint } from 'styled-components-breakpoint';
+
 
 const BreweryItem = styled.article`
-  border: 1px solid gray;
+
   border-radius: 3px;
   box-shadow: 5px 8px 15px 0 rgb(0 0 0 / 20%);
   height: 100%;
@@ -13,17 +15,42 @@ const BreweryItem = styled.article`
 
   .brewery {
     &__title {
-      font: 20px/1.5 sans-serif;
+      font-size: 16px;
       margin: 0 0 1rem;
+      color: #6e6f84;
+      justify-content: space-between;
+
+      a {
+        &:hover {
+          color: black;
+        }
+      }
     }
 
     &__type {
       background-color: ${({theme}) => theme.colors.primary};
       border-radius: 0.25rem;
       color: white;
-      font: 0.85rem/1 sans-serif;
-      padding: 0.25rem 0.5rem;
-      float: right;
+      font: 0.85rem/1 sans-serif;;
+      padding: 0.5rem 0.5rem;
+      text-transform: capitalize;
+    }
+
+    &__url {
+      &:hover {
+        background-color: beige;
+      }
+    }
+
+  }
+
+  .material-icons {
+    font-size: 1.2em;
+    color: red;
+    margin-right: .5em;
+
+    &.call {
+      color: black;
     }
   }
 
@@ -32,8 +59,17 @@ const BreweryItem = styled.article`
   }
 
   p {
-    margin: 0 0 0.5rem;
+    margin: 0 0 1rem;
+    display: flex;
   }
+
+  ${breakpoint('md')`
+    .brewery {
+      &__title {
+        font: 20px/1.5 sans-serif;
+      }
+    }
+  `}
 `;
 
 const BrewerySummaryItem = ({
@@ -54,8 +90,12 @@ const BrewerySummaryItem = ({
       </Link>
       <span className="brewery__type">{type}</span>
     </p>
-    <p className="brewery__location">{[city, state].join(', ')}</p>
-    <p className="brewery__phone">{phone}</p>
+    <p className="brewery__location"><span className="material-icons">
+location_on
+</span>{[city, state].join(', ')}</p>
+    {phone && ( <p className="brewery__phone"><span className="material-icons call">
+call
+</span>{`${phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1)-$2-$3")}`}</p> )}
     {url && (
       <a className="brewery__url" aria-label={`go to the ${name} brewery website`} href={url} target="_blank" rel="nofollow noreferrer">
         Brewery Website

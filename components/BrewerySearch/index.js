@@ -24,8 +24,7 @@ const SearchWrapper = styled.section`
     }
 
     label {
-      margin-right: 10px;
-      color: red;
+      display: none;
     }
 
     button {
@@ -37,6 +36,11 @@ const SearchWrapper = styled.section`
       padding: 0.5rem;
       text-transform: uppercase;
       -webkit-appearance: none;
+
+      &:hover {
+        background-color: red;
+        cursor: pointer;
+      }
     }
   }
 `;
@@ -78,14 +82,14 @@ const BrewerySearch = ({
       />
       <button type="submit">Search</button>
     </form>
-    {data ? (
+    {data?.length > 0 && (
       <>
         <p data-testid='results-heading' >Showing results for <strong>{searchTerm}</strong></p>
         <BrewerySummaryGrid
           breweries={data}
         />
       </>
-    ) : <div>Loading</div>}
+    )}
     </SearchWrapper>
   );
 };

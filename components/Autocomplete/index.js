@@ -2,6 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { breakpoint } from 'styled-components-breakpoint';
 
 
 const AutoCompleteContainer = styled.ul`
@@ -9,8 +10,8 @@ const AutoCompleteContainer = styled.ul`
   background: black;
   list-style: none;
   right: 0;
-  top: 1.5em;
-  width: 23em;
+  width: 100%;
+  top: 5.5em;
   padding: 1em 1em;
   z-index: 1;
 
@@ -18,11 +19,20 @@ const AutoCompleteContainer = styled.ul`
     margin-bottom: 10px;
     text-decoration: underline;
 
-    &:hover {
-      background-color: yellow;
-      color: black;
+    a {
+      color: white;
+      &:hover {
+        background-color: yellow;
+        color: black;
+      }
     }
   }
+
+  ${breakpoint('lg')`
+    top: 1.5em;
+    width: 23em;
+  `}
+
 `
 
 const AutoComplete = ({breweries, showAutoComplete}) => {

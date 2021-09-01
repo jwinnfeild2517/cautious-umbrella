@@ -19,7 +19,7 @@ export default function BreweryHomePage({
 }
 
 BreweryHomePage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export async function getStaticProps({ params }) {
