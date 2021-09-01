@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
+import LoadingScreen from '../Loader/index'
 import styled from 'styled-components';
 import useSWR from 'swr';
 
@@ -82,14 +83,14 @@ const BrewerySearch = ({
       />
       <button type="submit">Search</button>
     </form>
-    {data?.length > 0 && (
+    {data?.length > 0 ? (
       <>
         <p data-testid='results-heading' >Showing results for <strong>{searchTerm}</strong></p>
         <BrewerySummaryGrid
           breweries={data}
         />
       </>
-    )}
+    ): <LoadingScreen />}
     </SearchWrapper>
   );
 };
