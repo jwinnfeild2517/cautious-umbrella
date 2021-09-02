@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
 import LoadingScreen from '../Loader/index'
+import PaginationPage from './PaginationPage'
 import styled from 'styled-components';
 import useSWR from 'swr';
-
-import BrewerySummaryGrid from '../BrewerySummaryGrid'
 
 const SearchWrapper = styled.section`
   padding: 3rem 1rem;
@@ -66,8 +65,6 @@ const BrewerySearch = ({
     setInputValue(evt.target.value);
   }
 
-  if (error) return null;
-
   return (
     <SearchWrapper>
     <form onSubmit={onSubmit}>
@@ -86,9 +83,9 @@ const BrewerySearch = ({
     {data?.length > 0 ? (
       <>
         <p data-testid='results-heading' >Showing results for <strong>{searchTerm}</strong></p>
-        <BrewerySummaryGrid
+        <PaginationPage
           breweries={data}
-        />
+         />
       </>
     ): <LoadingScreen />}
     </SearchWrapper>
