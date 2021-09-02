@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { SWRConfig } from 'swr'
+import LocationProvider from '../components/LocationContext';
 
 import theme from '../config/theme';
 
@@ -35,7 +36,9 @@ export default function App({ Component, pageProps }) {
     >
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <LocationProvider>
+          <Component {...pageProps} />
+        </LocationProvider>
       </ThemeProvider>
     </SWRConfig>
   )

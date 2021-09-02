@@ -40,7 +40,7 @@ const BreweryHero = styled.article`
   }
 
   .brewery-info {
-    background-color: #efefef;
+    background-color: black;
     box-shadow: 0 5px 30px 0 rgba(0,0,0,0.5);
     border-radius: 1rem;
     bottom: 1rem;

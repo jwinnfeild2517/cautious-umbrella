@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { LocationContext } from '../LocationContext';
 import useSWR from 'swr';
 import { usePosition } from 'use-position';
 
 import BreweryHeroItem, { LoadingBreweryHeroItem } from '../BreweryHeroItem';
 
 const FeaturedBrewery = () => {
+  const { userLocation, updatelocation } = useContext(LocationContext)
   const {
     latitude,
     longitude,
@@ -15,10 +17,17 @@ const FeaturedBrewery = () => {
   } = usePosition();
 
   const { data, error } = useSWR(
-    `https://api.openbrewerydb.org/breweries?by_dist${latitude},${longitude}&per_page=1`,
+    `https://api.openbrewerydb.org/breweries?by_dist=${userLocation.lat},${userLocation.longitude}&per_page=1`,
   );
 
-  if (geoError) return null;
+  useEffect(() => {
+    if (latitude && longitude) {
+      updatelocation(latitude, longitude)
+    }else {
+      console.log(geoError);
+    }
+  }, [latitude, longitude])
+
   if (error || data?.length === 0) return "An error has occurred.";
   if (!data) return <LoadingBreweryHeroItem />;
 
